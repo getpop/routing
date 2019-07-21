@@ -27,7 +27,7 @@
     },
     "autoload": {
         "psr-4": {
-            "GetPoP\\Routing\\": "src"
+            "PoP\\Routing\\": "src"
         },
         "files": [
             "initialize.php"
@@ -35,7 +35,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "GetPoP\\Routing\\": "tests"
+            "PoP\\Routing\\": "tests"
         }
     },
     "scripts": {
