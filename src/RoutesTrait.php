@@ -1,7 +1,6 @@
 <?php
 namespace PoP\Routing;
 
-use PoP\Routing\Routes\DefinitionGroups;
 use PoP\Definitions\Facades\DefinitionManagerFacade;
 
 trait RoutesTrait {

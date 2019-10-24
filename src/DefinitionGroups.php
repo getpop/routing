@@ -1,5 +1,5 @@
 <?php
-namespace PoP\Routing\Routes;
+namespace PoP\Routing;
 
 class DefinitionGroups
 {
