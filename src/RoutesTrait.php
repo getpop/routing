@@ -4,7 +4,7 @@ namespace PoP\Routing;
 use PoP\Routing\Routes\DefinitionGroups;
 use PoP\Definitions\Facades\DefinitionManagerFacade;
 
-abstract class AbstractRoutes {
+trait RoutesTrait {
 
     /**
      * Construct all the routes, each of them having a unique definition (if the same "name" is used for 2 different routes, it throws an exception)
@@ -15,5 +15,7 @@ abstract class AbstractRoutes {
             $var = $definitionManager->getUniqueDefinition($route, DefinitionGroups::ROUTES);
         }
     }
-    protected static abstract function getRouteNameAndVariableRefs();
+    protected static function getRouteNameAndVariableRefs() {
+        return [];
+    }
 }
