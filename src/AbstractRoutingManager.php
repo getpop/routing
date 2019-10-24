@@ -22,7 +22,7 @@ abstract class AbstractRoutingManager implements RoutingManagerInterface
     public function getCurrentNature()
     {
     	// By default, everything is a standard route
-    	return Natures::STANDARD;
+    	return RouteNatures::STANDARD;
     }
 
     public function getCurrentRoute()
@@ -30,7 +30,7 @@ abstract class AbstractRoutingManager implements RoutingManagerInterface
     	$nature = $this->getCurrentNature();
 
     	// If it is a ROUTE, then the URL path is already the route
-        if ($nature == Natures::STANDARD) {
+        if ($nature == RouteNatures::STANDARD) {
             $route = \PoP\ComponentModel\Utils::getURLPath();
         } else {
 
