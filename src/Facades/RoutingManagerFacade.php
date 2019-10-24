@@ -1,7 +1,7 @@
 <?php
 namespace PoP\Routing\Facades;
 
-use PoP\Routing\RoutingInterface;
+use PoP\Routing\RoutingManagerInterface;
 use PoP\Root\Container\ContainerBuilderFactory;
 
 class RoutingManagerFacade
