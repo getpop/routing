@@ -45,7 +45,7 @@ abstract class AbstractRoutingManager implements RoutingManagerInterface
 
         // Allow to change it
         return HooksAPIFacade::getInstance()->applyFilters(
-            '\PoP\ComponentModel\Engine_Vars:route',
+            'ApplicationState:route',
             $route,
             $nature
         );
