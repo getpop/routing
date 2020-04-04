@@ -2,7 +2,7 @@
 namespace PoP\Routing;
 
 use PoP\Hooks\Facades\HooksAPIFacade;
-use PoP\ComponentModel\Misc\RequestUtils;
+use PoP\Routing\RoutingUtils;
 
 abstract class AbstractRoutingManager implements RoutingManagerInterface
 {
@@ -33,9 +33,8 @@ abstract class AbstractRoutingManager implements RoutingManagerInterface
 
     	// If it is a ROUTE, then the URL path is already the route
         if ($nature == RouteNatures::STANDARD) {
-            $route = RequestUtils::getURLPath();
+            $route = RoutingUtils::getURLPath();
         } else {
-
             // If having set URL param "route", then use it
             if (isset($_REQUEST[GD_URLPARAM_ROUTE])) {
                 $route = trim(strtolower($_REQUEST[GD_URLPARAM_ROUTE]), '/');
