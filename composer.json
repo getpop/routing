@@ -19,6 +19,7 @@
     "prefer-stable": true,
     "require": {
         "php" : "~7.1",
+        "getpop/hooks": "~0.1",
         "getpop/definitions": "~0.1"
     },
     "require-dev": {
