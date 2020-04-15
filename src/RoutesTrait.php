@@ -10,7 +10,8 @@ trait RoutesTrait
 {
 
     /**
-     * Construct all the routes, each of them having a unique definition (if the same "name" is used for 2 different routes, it throws an exception)
+     * Construct all the routes, each of them having a unique definition
+     * (if the same "name" is used for 2 different routes, it throws an exception)
      */
     public static function init()
     {
