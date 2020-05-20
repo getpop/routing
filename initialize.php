@@ -1,2 +1,2 @@
 <?php
-\PoP\Routing\Component::init();
+//\PoP\Routing\Component::initialize();

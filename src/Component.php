@@ -13,6 +13,14 @@ class Component extends AbstractComponent
 {
     // const VERSION = '0.1.0';
 
+    public static function getDependedComponentClasses(): array
+    {
+        return [
+            \PoP\Hooks\Component::class,
+            \PoP\Definitions\Component::class,
+        ];
+    }
+
     /**
      * Boot component
      *
