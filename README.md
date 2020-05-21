@@ -20,12 +20,13 @@ Via Composer
 composer require getpop/routing
 ```
 
-<!--
 ## Usage
 
+Initialize the component:
+
 ``` php
+\PoP\Routing\Component::initialize();
 ```
--->
 
 ## Standards
 
