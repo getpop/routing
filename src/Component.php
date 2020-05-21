@@ -26,7 +26,7 @@ class Component extends AbstractComponent
      *
      * @return void
      */
-    public static function beforeBoot()
+    public static function beforeBoot(): void
     {
         parent::beforeBoot();
 
