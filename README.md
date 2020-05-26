@@ -25,7 +25,9 @@ composer require getpop/routing
 Initialize the component:
 
 ``` php
-\PoP\Routing\Component::initialize();
+\PoP\Root\ComponentLoader::initializeComponents([
+    \PoP\Routing\Component::class,
+]);
 ```
 
 ## Standards
