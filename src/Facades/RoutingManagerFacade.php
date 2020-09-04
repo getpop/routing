@@ -11,6 +11,10 @@ class RoutingManagerFacade
 {
     public static function getInstance(): RoutingManagerInterface
     {
-        return ContainerBuilderFactory::getInstance()->get('routing_manager');
+        /**
+         * @var RoutingManagerInterface
+         */
+        $service = ContainerBuilderFactory::getInstance()->get('routing_manager');
+        return $service;
     }
 }
