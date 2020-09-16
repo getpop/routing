@@ -9,7 +9,10 @@ use PoP\Routing\RoutingUtils;
 
 abstract class AbstractRoutingManager implements RoutingManagerInterface
 {
-    private $routes;
+    /**
+     * @var string[]|null
+     */
+    private ?array $routes = null;
 
     public function getRoutes()
     {
