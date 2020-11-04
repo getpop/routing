@@ -8,7 +8,7 @@ class Routes
 {
     use RoutesTrait;
 
-    public static string $MAIN;
+    public static string $MAIN = '';
     /**
      * @return array<string, string>
      */
