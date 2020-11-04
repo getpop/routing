@@ -6,7 +6,10 @@ namespace PoP\Routing;
 
 interface RoutingManagerInterface
 {
-    public function getRoutes();
-    public function getCurrentNature();
-    public function getCurrentRoute();
+    /**
+     * @return string[]
+     */
+    public function getRoutes(): array;
+    public function getCurrentNature(): string;
+    public function getCurrentRoute(): string;
 }

@@ -6,6 +6,7 @@ namespace PoP\Routing;
 
 use PoP\Hooks\Facades\HooksAPIFacade;
 use PoP\Routing\RoutingUtils;
+use PoP\Routing\URLParams;
 
 abstract class AbstractRoutingManager implements RoutingManagerInterface
 {
@@ -14,7 +15,10 @@ abstract class AbstractRoutingManager implements RoutingManagerInterface
      */
     private ?array $routes = null;
 
-    public function getRoutes()
+    /**
+     * @return string[]
+     */
+    public function getRoutes(): array
     {
         if (is_null($this->routes)) {
             $this->routes = array_filter(
@@ -44,13 +48,13 @@ abstract class AbstractRoutingManager implements RoutingManagerInterface
         return $this->routes;
     }
 
-    public function getCurrentNature()
+    public function getCurrentNature(): string
     {
         // By default, everything is a standard route
         return RouteNatures::STANDARD;
     }
 
-    public function getCurrentRoute()
+    public function getCurrentRoute(): string
     {
         $nature = $this->getCurrentNature();
 
@@ -59,8 +63,8 @@ abstract class AbstractRoutingManager implements RoutingManagerInterface
             $route = RoutingUtils::getURLPath();
         } else {
             // If having set URL param "route", then use it
-            if (isset($_REQUEST[GD_URLPARAM_ROUTE])) {
-                $route = trim(strtolower($_REQUEST[GD_URLPARAM_ROUTE]), '/');
+            if (isset($_REQUEST[URLParams::ROUTE])) {
+                $route = trim(strtolower($_REQUEST[URLParams::ROUTE]), '/');
             } else {
                 // If not, use the "main" route
                 $route = Routes::$MAIN;
@@ -68,7 +72,7 @@ abstract class AbstractRoutingManager implements RoutingManagerInterface
         }
 
         // Allow to change it
-        return HooksAPIFacade::getInstance()->applyFilters(
+        return (string)HooksAPIFacade::getInstance()->applyFilters(
             'ApplicationState:route',
             $route,
             $nature

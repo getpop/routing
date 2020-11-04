@@ -8,7 +8,7 @@ use PoP\Hooks\Facades\HooksAPIFacade;
 
 class RoutingUtils
 {
-    public static function getURLPath()
+    public static function getURLPath(): string
     {
         // Allow to remove the language information from qTranslate (https://domain.com/en/...)
         $route = HooksAPIFacade::getInstance()->applyFilters(
