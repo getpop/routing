@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace PoP\Routing;
 
-use PoP\BasicService\BasicServiceTrait;
+use PoP\Root\App;
+use PoP\Root\Services\BasicServiceTrait;
 
 abstract class AbstractRoutingManager implements RoutingManagerInterface
 {
@@ -22,7 +23,7 @@ abstract class AbstractRoutingManager implements RoutingManagerInterface
     {
         if ($this->routes === null) {
             $this->routes = array_filter(
-                (array) $this->getHooksAPI()->applyFilters(
+                (array) App::applyFilters(
                     RouteHookNames::ROUTES,
                     []
                 )
@@ -31,7 +32,7 @@ abstract class AbstractRoutingManager implements RoutingManagerInterface
             // // If there are partial endpoints, generate all the combinations of route + partial endpoint
             // // For instance, route = "posts", endpoint = "/api/rest", combined route = "posts/api/rest"
             // if ($partialEndpoints = array_filter(
-            //     (array) $this->getHooksAPI()->applyFilters(
+            //     (array) \PoP\Root\App::applyFilters(
             //         'route-endpoints',
             //         []
             //     )
@@ -51,7 +52,7 @@ abstract class AbstractRoutingManager implements RoutingManagerInterface
     public function getCurrentNature(): string
     {
         // By default, everything is a standard route
-        return RouteNatures::STANDARD;
+        return RouteNatures::GENERIC;
     }
 
     public function getCurrentRoute(): string
@@ -59,7 +60,7 @@ abstract class AbstractRoutingManager implements RoutingManagerInterface
         $nature = $this->getCurrentNature();
 
         // If it is a ROUTE, then the URL path is already the route
-        if ($nature === RouteNatures::STANDARD) {
+        if ($nature === RouteNatures::GENERIC) {
             $route = RoutingUtils::getURLPath();
         } else {
             // If having set URL param "route", then use it
@@ -72,7 +73,7 @@ abstract class AbstractRoutingManager implements RoutingManagerInterface
         }
 
         // Allow to change it
-        return (string) $this->getHooksAPI()->applyFilters(
+        return (string) App::applyFilters(
             RouteHookNames::CURRENT_ROUTE,
             $route,
             $nature
